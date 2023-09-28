@@ -1,10 +1,9 @@
 name: 'GitHub Actions Weather Bot'
  
 on:
-  push:
   schedule:
-  # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '0 21 * * *'
+  # 定时任务，在每天的5点推送天气信息到邮箱21是国际时间，对应北京5点，23对应7点？
+    - cron: '0 23 * * *'
 
 jobs:
   bot:
