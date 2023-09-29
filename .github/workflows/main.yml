@@ -26,8 +26,8 @@ jobs:
           server_address: smtp.qq.com
           server_port: 465
           # 这些sectret的环境变量需要配置在setting中的secret下
-          username: ${{ secrets.TLY_ACCOUNT_2 }}
-          password: ${{ secrets.MAIL_SECRET_2 }}
+          username: ${{ secrets.MAIL_ACCOUNT_8 }}
+          password: ${{ secrets.MAIL_LICENSE_8 }}
           subject: 天气预报 (${{env.REPORT_DATE}})
           body: file://result.html
           to: 2041642518@qq.com
