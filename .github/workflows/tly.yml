@@ -5,7 +5,7 @@ name: glados-checkin
 on:
   schedule:
   # 定时任务，在每天的8点推送签到信息到邮箱
-    - cron:  0 0 * * * 
+    - cron:  0 20 * * * 
 
 jobs:
 #将工作流程中运行的所有作业组合在一起
