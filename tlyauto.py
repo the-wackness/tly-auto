@@ -4,8 +4,9 @@ import base64
 import json
 from datetime import datetime
 
-cookie="" #账号cookie
-token='' #验证码token
+cookie="PHPSESSID=tqbssq8lrscv97thsnbtnt8oj2; lang=zh; is_web=1; _gid=GA1.2.2029260561.1695899992; user_pwd=2d40d33667db3c618b2f8cc9621b1a143fc8580092fa6; uid=2305029; user_email=wackness1%40outlook.com; _ga_GEJ5VGCT7K=GS1.1.1695957365.3.1.1695957791.50.0.0; _ga=GA1.2.1298712655.1695899992" #账号cookie
+#''
+token='0e9ebfed7' #验证码token
 
 #token在http://www.bhshare.cn/imgcode/ 自行申请
 
