@@ -4,8 +4,8 @@ name: tly-checkin
 #
 on:
   schedule:
-  # 定时任务，在每天的8点推送签到信息到邮箱
-    - cron:  0 18 * * * 
+  # 定时任务 想要运行的时间-8即为填入值例如：bj11点运行 填11-8=3
+    - cron:  0 3 * * * 
 
 jobs:
 #将工作流程中运行的所有作业组合在一起
@@ -37,7 +37,8 @@ jobs:
         python3 ./tlyauto.py 
       env: #设置secrets的环境变量
         COOKIE1: ${{ secrets.COOKIEW }}
-        COOKIE2: ${{ secrets.COOKIE2 }}
-        MAIL1: ${{ secrets.TLY_ACCOUNT_2 }}
-        MAIL2: ${{ secrets.TLY_ACCOUNT_W }}
+        TOKEN: ${{ secrets.BHSHARE_TOKEN }}
+        MAIL2: ${{ secrets.TLY_ACCOUNT_2 }}
+        MAIL1: ${{ secrets.TLY_ACCOUNT_W }}
+        MAIL3: ${{ secrets.TLY_ACCOUNT_G }}
 
