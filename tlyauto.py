@@ -4,10 +4,8 @@ import base64
 import json
 from datetime import datetime
 
-cookie="COOKIEW" #账号cookie
-#''
-token='TOKEN' #验证码token
-
+cookie = os.environ["COOKIE1"] #账号cookie  因为$前面是大写所以也是大写 COOKIE1是在yml里面env写的
+token = os.environ["TOKEN"] #验证码token
 #token在http://www.bhshare.cn/imgcode/ 自行申请
 
 def imgcode_online(imgurl):
