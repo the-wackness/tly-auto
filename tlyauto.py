@@ -6,7 +6,7 @@ from datetime import datetime
 
 cookie="COOKIEW" #账号cookie
 #''
-token='BHSHARE_TOKEN' #验证码token
+token='TOKEN' #验证码token
 
 #token在http://www.bhshare.cn/imgcode/ 自行申请
 
