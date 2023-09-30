@@ -13,9 +13,9 @@ import os
 reload(sys)
 sys.setdefaultencoding('utf8') 
 
-recvmail = os.environ["TLY_ACCOUNT_2"]
-sends = os.environ["MAIL_SECRET_2"]
-sendm = os.environ["TLY_ACCOUNT_2"]
+recvmail = os.environ["MAIL2"]
+sends = os.environ["MAIL3"]
+sendm = os.environ["MAIL2"]
 
 # 下面这些配置根据自己实际情况配置
 boy_name = 'red'
