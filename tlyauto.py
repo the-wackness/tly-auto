@@ -82,7 +82,7 @@ def tly():
         print(oocr['data'])
         # base64_data = base64.b64encode(res1.content)
         # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
-        res2=requests.get(url=signurl+oocr['data'].upper(),headers=hearder).text
+        res2=requests.get(url=signurl+oocr['data'],headers=hearder).text
         print('res2:----')
         print(res2)
     else:
