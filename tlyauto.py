@@ -24,12 +24,15 @@ def imgcode_online(imgurl):
     }
     # print(payload)
     resp = requests.post(_custom_url, headers=_headers, data=json.dumps(payload))
+    print('resp-----')
     print(resp.text)
     result = json.loads(resp.text)
     if result['code'] == 10000:
+        print('data----')
+        print(result['data'])
         return result['data']
     else:
-        print('msg:')
+        print('msg:----')
         print(result['msg'])
         return 'error'
     # return resp.json()['data']['data']
@@ -94,12 +97,12 @@ def tly():
         res1=requests.get(url=captchaUrl,headers=hearder)
         base64_data = base64.b64encode(res1.content).decode()
         oocr=imgcode_online(base64_data)
-        print('获得的验证码：')
+        print('获得的验证码：-----')
         print(oocr)
         # base64_data = base64.b64encode(res1.content)
         # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
         res2=requests.get(url=signurl+oocr,headers=hearder).text
-        print('res2:')
+        print('res2:----')
         print(res2)
     else:
         print("还未到时间！",t-timeStamp)
