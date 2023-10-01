@@ -9,22 +9,48 @@ cookie = os.environ["COOKIE1"] #账号cookie  因为$前面是大写所以也是
 token = os.environ["TOKEN"] #验证码token
 #token在http://www.bhshare.cn/imgcode/ 自行申请
 
+
 def imgcode_online(imgurl):
-    data = {
-   
-        'token': token,
-        'type': 'online',
-        'uri': imgurl
+    _custom_url = "http://api.jfbym.com/api/YmServer/customApi"
+    _token = token
+    verify_type="10110"
+    _headers = {
+        'Content-Type': 'application/json'
     }
-    response = requests.post('http://www.bhshare.cn/imgcode/', data=data)
-    print(response.text)
-    result = json.loads(response.text)
+    payload = {
+        "image": imgurl,
+        "token": _token,
+        "type": verify_type
+    }
+    print(payload)
+    resp = requests.post(_custom_url, headers=_headers, data=json.dumps(payload))
+    print(resp.text)
+    result = json.loads(resp.text)
     if result['code'] == 200:
         print(result['data'])
         return result['data']
     else:
         print(result['msg'])
         return 'error'
+    # return resp.json()['data']['data']
+
+
+# def imgcode_online(imgurl):
+#     data = {
+   
+#         'token': token,
+#         'type': 'online',
+#         'uri': imgurl
+#     }
+#     response = requests.post('http://www.bhshare.cn/imgcode/', data=data)
+#     print(response.text)
+#     result = json.loads(response.text)
+#     if result['code'] == 200:
+#         print(result['data'])
+#         return result['data']
+#     else:
+#         print(result['msg'])
+#         return 'error'
 
 
 def getmidstring(html, start_str, end):
@@ -55,8 +81,10 @@ def tly():
         signurl="https://tly31.com/modules/_checkin.php?captcha="
         hearder={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36','Cookie':cookie}
         res1=requests.get(url=captchaUrl,headers=hearder)
-        base64_data = base64.b64encode(res1.content)
-        oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
+        base64_data = base64.b64encode(res1.content).decode()
+        oocr=imgcode_online(base64_data)
+        # base64_data = base64.b64encode(res1.content)
+        # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
         res2=requests.get(url=signurl+oocr.upper(),headers=hearder).text
         print(res2)
     else:
