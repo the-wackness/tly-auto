@@ -85,6 +85,7 @@ def tly():
         res1=requests.get(url=captchaUrl,headers=hearder)
         base64_data = base64.b64encode(res1.content).decode()
         oocr=imgcode_online(base64_data)
+        print(oocr)
         # base64_data = base64.b64encode(res1.content)
         # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
         res2=requests.get(url=signurl+oocr.upper(),headers=hearder).text
