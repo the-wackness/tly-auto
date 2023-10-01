@@ -22,7 +22,7 @@ def imgcode_online(imgurl):
         "token": _token,
         "type": verify_type
     }
-    print(payload)
+    # print(payload)
     resp = requests.post(_custom_url, headers=_headers, data=json.dumps(payload))
     print(resp.text)
     result = json.loads(resp.text)
@@ -31,6 +31,7 @@ def imgcode_online(imgurl):
         print(result['data'])
         return result['data']
     else:
+        print('msg:')
         print(result['msg'])
         return 'error'
     # return resp.json()['data']['data']
