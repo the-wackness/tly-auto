@@ -11,7 +11,6 @@ import random,sys
 import os
 import importlib
 importlib.reload(sys)
-sys.setdefaultencoding('utf8') 
 
 recvmail = os.environ["MAIL2"]
 sends = os.environ["MAIL3"]
