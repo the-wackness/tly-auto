@@ -5,7 +5,7 @@ import json
 import os
 from datetime import datetime
 
-cookie = os.environ["COOKIE1"] #账号cookie  因为$前面是大写所以也是大写 COOKIE1是在yml里面env写的
+cookie = os.environ["COOKIE1"] #账号cookie   COOKIE1是在yml里面env写的
 token = os.environ["TOKEN"] #验证码token
 #token在http://www.bhshare.cn/imgcode/ 自行申请
 
@@ -48,25 +48,6 @@ def imgcode_online(imgurl):
 # 10008	网络错误，请稍后重试
 # 10009	结果准备中，请稍后再试
 # 10010	请求结束
-
-
-# def imgcode_online(imgurl):
-#     data = {
-   
-#         'token': token,
-#         'type': 'online',
-#         'uri': imgurl
-#     }
-#     response = requests.post('http://www.bhshare.cn/imgcode/', data=data)
-#     print(response.text)
-#     result = json.loads(response.text)
-#     if result['code'] == 200:
-#         print(result['data'])
-#         return result['data']
-#     else:
-#         print(result['msg'])
-#         return 'error'
-
 
 def getmidstring(html, start_str, end):
     start = html.find(start_str)
