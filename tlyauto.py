@@ -47,8 +47,8 @@ def tly():
     timeArray = time.strptime(signtime, "%Y-%m-%d %H:%M:%S")
     timeStamp = int(time.mktime(timeArray))
     t = int(time.time())
-
-    if t-timeStamp>86400:
+    #86400是一天
+    if t-timeStamp>60000:
         print("距上次签到时间大于24小时啦,可签到")
         #获取验证码图片
         captchaUrl="https://tly31.com/other/captcha.php"
