@@ -7,7 +7,6 @@ from datetime import datetime
 
 cookie = os.environ["COOKIE1"] #账号cookie   COOKIE1是在yml里面env写的
 token = os.environ["TOKEN"] #验证码token
-#token在http://www.bhshare.cn/imgcode/ 自行申请
 
 
 def imgcode_online(imgurl):
