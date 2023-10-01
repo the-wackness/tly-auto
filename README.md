@@ -17,3 +17,6 @@
 [发现网上一堆 GLaDOS 网页签到](https://gitee.com/luck-ying/glados_checkin)<br>
 发现更好用机场[glados](https://www.right.com.cn/FORUM/thread-8299215-1-1.html)
 （貌似） 还没尝试，如果有更好的，那我建立这个repo的目的就可以换方向了<br>
+<br>
+<br>
+j 验证码的接口不开放了，签到失败验证码错误。。。
