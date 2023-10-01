@@ -5,7 +5,7 @@ name: weather bot
 on:
   schedule:
   # 定时任务 想要运行的时间-8即为填入值例如：bj11点运行 填11-8=3
-    - cron:  0 23 * * * 
+    - cron:  5 1 * * * 
 
 jobs:
 #将工作流程中运行的所有作业组合在一起
