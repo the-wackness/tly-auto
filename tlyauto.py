@@ -26,7 +26,8 @@ def imgcode_online(imgurl):
     resp = requests.post(_custom_url, headers=_headers, data=json.dumps(payload))
     print('resp-----')
     print(resp.text)
-    result = json.loads(resp.text)
+    #result = resp.text
+    result = json.loads(resp.text)#转换为字典
     if result['code'] == 10000:
         print('data----')
         print(result['data'])
@@ -101,7 +102,7 @@ def tly():
         print(oocr)
         # base64_data = base64.b64encode(res1.content)
         # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
-        res2=requests.get(url=signurl+oocr,headers=hearder).text
+        res2=requests.get(url=signurl+oocr.upper(),headers=hearder).text
         print('res2:----')
         print(res2)
     else:
