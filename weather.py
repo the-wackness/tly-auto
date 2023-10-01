@@ -141,7 +141,7 @@ mail_content = """<!DOCTYPE html>
 
 def send_mail(to_list,sub,content):
     me=name+"<"+mail_user+">"
-    msg = MIMEText(content.decode(),_subtype='html',_charset='utf-8')
+    msg = MIMEText(content,_subtype='html',_charset='utf-8')
     msg['Subject'] = sub
     msg['From'] = me
     msg['To'] = ",".join(mailto_list)
