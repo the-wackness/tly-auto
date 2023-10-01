@@ -26,7 +26,7 @@ def imgcode_online(imgurl):
     resp = requests.post(_custom_url, headers=_headers, data=json.dumps(payload))
     print(resp.text)
     result = json.loads(resp.text)
-    if result['code'] == 0:
+    if result['code'] == 10000:
         print('result return:'+ result['data'])
         return result['data']
     else:
@@ -34,6 +34,17 @@ def imgcode_online(imgurl):
         print(result['msg'])
         return 'error'
     # return resp.json()['data']['data']
+# 10000	识别成功
+# 10001	参数错误
+# 10002	余额不足
+# 10003	无此访问权限
+# 10004	无此验证类型
+# 10005	网络拥塞
+# 10006	数据包过载
+# 10007	服务繁忙
+# 10008	网络错误，请稍后重试
+# 10009	结果准备中，请稍后再试
+# 10010	请求结束
 
 
 # def imgcode_online(imgurl):
