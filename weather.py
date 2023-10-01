@@ -51,7 +51,9 @@ def get_chp():
 def get_weather():
     url = "https://tianqi.moji.com/weather/china/%s/%s"%(province,city)
     resp = requests.get(url)
-    soup = BeautifulSoup(resp.text,"html5lib",from_encoding="utf-8")
+    # soup = BeautifulSoup(resp.text,"html5lib")
+    soup=BeautifulSoup(resp.text,'html.parser')
+
     all_tertiaryconsumers = soup.find_all(class_='days clearfix') 
     html = ''
     for tertiaryconsumer in all_tertiaryconsumers:
