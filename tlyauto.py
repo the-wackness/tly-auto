@@ -33,7 +33,7 @@ def imgcode_online(imgurl):
     else:
         print('msg:')
         print(result['msg'])
-        return 'error'
+        return result['data']
     # return resp.json()['data']['data']
 
 
