@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 import time 
 import random,sys
 import os
+import html5lib
 import importlib
 importlib.reload(sys)
 
@@ -51,8 +52,8 @@ def get_chp():
 def get_weather():
     url = "https://tianqi.moji.com/weather/china/%s/%s"%(province,city)
     resp = requests.get(url)
-    # soup = BeautifulSoup(resp.text,"html5lib")
-    soup=BeautifulSoup(resp.text,'html.parser')
+    soup = BeautifulSoup(resp.text,"html5lib")
+    # soup=BeautifulSoup(resp.text,'html.parser')
 
     all_tertiaryconsumers = soup.find_all(class_='days clearfix') 
     html = ''
