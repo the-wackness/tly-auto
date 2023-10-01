@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 import time 
 import random,sys
 import os
-
-reload(sys)
+import importlib
+importlib.reload(sys)
 sys.setdefaultencoding('utf8') 
 
 recvmail = os.environ["MAIL2"]
