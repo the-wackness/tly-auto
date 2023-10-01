@@ -27,7 +27,7 @@ def imgcode_online(imgurl):
     print(resp.text)
     result = json.loads(resp.text)
     if result['code'] == 10000:
-        print('result return:'+ result['data'])
+        print(result['data'])
         return result['data']
     else:
         print('msg:')
