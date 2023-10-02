@@ -31,18 +31,6 @@ wendu = today['wendu']
 ganmao = today['ganmao']
 info = '空气湿度:'+str(shidu)+' PM2.5浓度'+str(pm25)+' 空气质量:'+str(quality)+' 温度:'+str(wendu)+'℃ '+str(ganmao)
 
-#生活提醒
-isoyuurl = 'http://api.isoyu.com/api/Weather/get_weather?city=上海'
-isoyu = requests.get(isoyuurl) 
-isoyu = json.loads(isoyu.text)
-res = isoyu["data"]["results"][0]
-ress = res["index"]
-zero = ress[0]["tipt"]+"（"+ress[0]["zs"]+"）"+":"+ress[0]["des"]
-one = ress[1]["tipt"]+"（"+ress[1]["zs"]+"）"+":"+ress[1]["des"]
-two = ress[2]["tipt"]+"（"+ress[2]["zs"]+"）"+":"+ress[2]["des"]
-three = ress[3]["tipt"]+"（"+ress[3]["zs"]+"）"+":"+ress[3]["des"]
-four = ress[4]["tipt"]+"（"+ress[4]["zs"]+"）"+":"+ress[4]["des"]
-
 
 #3天天气		
 oneday = datas[0]['ymd']+"("+datas[0]['week']+")"+" "+datas[0]['type']+" "+datas[0]['high']+" "+datas[0]['low']+" "+datas[0]['fx']+datas[0]['fl']+" "+"日出时间:"+datas[0]['sunrise']+" "+"日落时间:"+datas[0]['sunset']+" "+datas[0]['notice']
@@ -50,12 +38,6 @@ twoday = datas[1]['ymd']+"("+datas[1]['week']+")"+" "+datas[1]['type']+" "+datas
 threeday = datas[2]['ymd']+"("+datas[2]['week']+")"+" "+datas[2]['type']+" "+datas[2]['high']+" "+datas[2]['low']+" "+datas[2]['fx']+datas[2]['fl']+" "+"日出时间:"+datas[2]['sunrise']+" "+"日落时间:"+datas[2]['sunset']+" "+datas[2]['notice']
 fourday = datas[3]['ymd']+"("+datas[3]['week']+")"+" "+datas[3]['type']+" "+datas[3]['high']+" "+datas[3]['low']+" "+datas[3]['fx']+datas[3]['fl']+" "+"日出时间:"+datas[3]['sunrise']+" "+"日落时间:"+datas[3]['sunset']+" "+datas[3]['notice']
 
-#历史上的今天
-txt = requests.get('https://www.ipip5.com/today/api.php?type=txt')
-txts = txt.text
-retxt = txts.strip('感谢 www.ipip5.com 提供数据支持')
-txtx = retxt.replace('\n', '<br>')
-txtxs = txtx.replace('历史上的今天', '历史上的今天</h2><p>')
 
 #每日古诗
 shi = requests.get('https://v2.jinrishici.com/one.json')
@@ -91,22 +73,6 @@ i9 = '<a href='+urlinfo[8]+">"+top_list[8]+"</a>   搜索指数为："+num_searc
 i10 = '<a href='+urlinfo[9]+">"+top_list[9]+"</a>   搜索指数为："+num_search[9]
 i = i1+'<br>'+i2+'<br>'+i3+'<br>'+i4+'<br>'+i5+'<br>'+i6+'<br>'+i7+'<br>'+i8+'<br>'+i9+'<br>'+i10
 
-#冷知识
-head = {}
-lenurl = "http://www.lengdou.net/random"
-head["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0"
-head["Accept"]= "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-head["Accept-Language"]= "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"
-head["Connection"] = "keep-alive"
-lenres = requests.get(lenurl , headers = head)
-with open("lenhtml.txt", "wb") as lenf:
-    lenf.write(lenres.content)
-lenhtml = etree.parse('lenhtml.txt' , etree.HTMLParser(encoding='utf-8'))
-leninfo = lenhtml.xpath('//*[@id="topic_list"]/li/div/p[1]/text()')
-leninfos = str(leninfo)
-leninfox = leninfos.strip("['")
-leninfoxs = leninfox.strip("']")
-
 #发送邮件
 def sendHtml_email(msg):
     '''
@@ -130,6 +96,9 @@ def sendHtml_email(msg):
     #server.sendmail(message['from'],receivers, message.as_string())
     server.sendmail(message['from'],[message['to']], message.as_string())
     server.quit()
+
+
+
 
 
 
@@ -1128,6 +1097,15 @@ background-color: #c4e3f3;
 
 
 
+
+
+
+
+
+
+
+
+
 </style>
 <div class="container-fluid">
 	<div class="row clearfix">
@@ -1135,29 +1113,7 @@ background-color: #c4e3f3;
 			<h3 class="text-info">
 				今天也是美好的一天
             </h3> <span class="label label-primary">更新时间'''+timeupdate+'''</span><br><br>
-			<div class="list-group">
-				 <a class="list-group-item active">注意事项</a>
-				<div class="list-group-item">
-					<h4 class="list-group-item-heading">
-						'''+info+'''
-					</h4>
-				</div>
-				<div class="list-group-item">
-					'''+zero+'''
-				</div>
-				<div class="list-group-item">
-					'''+one+'''
-				</div>
-				<div class="list-group-item">
-					'''+two+'''
-				</div>
-				<div class="list-group-item">
-					'''+three+'''
-				</div>
-				<div class="list-group-item">
-					'''+four+'''
-				</div>
-			</div>
+			
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -1250,6 +1206,11 @@ background-color: #c4e3f3;
 		</div>
 	</div>
 </div>
+
+
+
+
+
 <div class="col-md-12 columnr-fluid">
 			<h2>
               百度热搜榜TOP10
@@ -1260,24 +1221,15 @@ background-color: #c4e3f3;
 			</p>
 		</div>
 			</div>
-<hr class="hr0" />
-<div class="col-md-12 columnr-fluid">
-			<h2>
-               '''+txtxs+'''
-			</p>
-		</div>
-<hr class="hr0" />
-<div class="col-md-12 columnr-fluid">
-<center>
-			<h2>
-              Do you know?
-			</h2>
-			<p>
-			'''+leninfoxs+''' 
-			</p>
-		</div>
-			</div>
-</center>
+
+
+
+
+
+
+
+
+
 <hr class="hr0" />
 <div class="page-header">
 <center>
@@ -1289,6 +1241,10 @@ background-color: #c4e3f3;
 				</h3>
 </center>
 <br>
+
+
+
+
 <hr class="hr0" />
 <center>
 				<h1>
