@@ -65,16 +65,12 @@ def tly():
 
     res=requests.get(url=signUrl,headers=hearder).text
     signtime=getmidstring(res,'<p>上次签到时间：<code>','</code></p>')
-    print(signtime)
+    print('上次签到时间：'+signtime)
     timeArray = time.strptime(signtime, "%Y-%m-%d %H:%M:%S")
-    print(timeArray)
-    timeStamp = (time.time()) - (time.mktime(timeArray))
-    print(timeStamp)
-    # timeStamp = int(time.mktime(timeArray))
-    # t = int(time.time())
-    # print(t)
-    #86400是一天
-    if timeStamp>86400:
+    timeStamp = int(time.mktime(timeArray))
+    t = int(time.time())
+    #86400是一天    存在时差
+    if t-timeStamp>(86400-28800):
         print("距上次签到时间大于24小时啦,可签到")
         #获取验证码图片
         captchaUrl="https://tly31.com/other/captcha.php"
@@ -87,11 +83,11 @@ def tly():
         print(oocr['data'])
         # base64_data = base64.b64encode(res1.content)
         # oocr=imgcode_online('data:image/jpeg;base64,'+str(base64_data, 'utf-8'))
-        res2=requests.get(url=signurl+oocr['data'],headers=hearder).text
+        res2=requests.get(url=signurl+oocr['data'].upper,headers=hearder).text
         print('res2:----')
         print(res2)
     else:
-        print("还未到时间！",timeStamp)
+        print("还未到时间！",t-timeStamp)
 
 
 
