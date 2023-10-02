@@ -112,91 +112,48 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: 1.1;
 }
 
+tr,td{font-size:12px;color:#000000;background:#ffffff;}
 
 table {
-
 max-width: 100%;
-
 background-color: transparent;
-
 border-collapse: collapse;
-
 border-spacing: 0;
-
 }
 
 
 
 .table {
-
 width: 100%;
-
 margin-bottom: 20px;
-
 }
 
 .table th, .table td {
-
 padding: 8px;
-
 line-height: 20px;
-
 text-align: left;
-
 vertical-align: top;
-
 border-top: 1px solid #dddddd;
-
 }
 
 
 
 .table th {
-
 font-weight: bold;
-
 }
 
 
 
 .table thead th {
-
 vertical-align: bottom;
-
 }
-
-
-
-.table caption+thead tr:first-child th, .table caption+thead tr:first-child td, .table colgroup+thead tr:first-child th, .table colgroup+thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
-
-border-top: 0;
-
-}
-
-
-
-.table tbody+tbody {
-
-border-top: 2px solid #dddddd;
-
-}
-
-
-
-.table .table {
-
-background-color: #ffffff;
-
-}
-
-
 
 </style>
 <div class="container-fluid">
 <div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3 class="text-info">	今天也是美好的一天 </h3>
-                <span class="label label-primary">更新时间'''+timeupdate+'''</span><br>
+			<h3 class="text-info">	上海天气 </h3>
+                <span class="label label-primary">更新时间 '''+timeupdate+'''</span><br>
 		<hr class="hr0" />
   
 		<table class="table table-striped">
@@ -307,7 +264,7 @@ background-color: #ffffff;
 <hr class="hr0" />
 <div class="page-header">
 <center>
-				<h3>《'''+tishi+''' 》<small>'''+dynasty+' '+author+'''</small></h3>
+				<h3>《'''+tishi+''' 》<br><small>'''+dynasty+' '+author+'''</small></h3>
 				<h5>'''+reshi+'''</h5>
 </center>
 <br>
