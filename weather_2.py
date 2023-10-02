@@ -152,9 +152,8 @@ vertical-align: bottom;
 <div class="container-fluid">
 <div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3 class="text-info">	上海天气 </h3>
-                <span class="label label-primary">更新时间 '''+timeupdate+'''</span><br>
-		<hr class="hr0" />
+			<p style="diaplay:inline-block;font-size: 18px;">	上海天气    </p> 
+                <span class="label label-primary" style="text-align:right;">更新时间 '''+timeupdate+'''</span><br>
   
 		<table class="table table-striped">
 			<thead>
