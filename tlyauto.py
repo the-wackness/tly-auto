@@ -68,12 +68,13 @@ def tly():
     print(signtime)
     timeArray = time.strptime(signtime, "%Y-%m-%d %H:%M:%S")
     print(timeArray)
-    timeStamp = int(time.mktime(timeArray))
+    timeStamp = (time.time()) - (time.mktime(timeArray))
     print(timeStamp)
-    t = int(time.time())
-    print(t)
+    # timeStamp = int(time.mktime(timeArray))
+    # t = int(time.time())
+    # print(t)
     #86400是一天
-    if t-timeStamp>86400:
+    if timeStamp>86400:
         print("距上次签到时间大于24小时啦,可签到")
         #获取验证码图片
         captchaUrl="https://tly31.com/other/captcha.php"
@@ -90,7 +91,7 @@ def tly():
         print('res2:----')
         print(res2)
     else:
-        print("还未到时间！",t-timeStamp)
+        print("还未到时间！",timeStamp)
 
 
 
