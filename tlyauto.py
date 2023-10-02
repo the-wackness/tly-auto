@@ -48,7 +48,7 @@ def imgcode_online(imgurl):
 # 10009	结果准备中，请稍后再试
 # 10010	请求结束
 
-def getmidstring(html, start_str, end):
+def getmidstring(html, start_str, end):        #获取时间字符串
     start = html.find(start_str)
     if start >= 0:
         start += len(start_str)
@@ -65,9 +65,12 @@ def tly():
 
     res=requests.get(url=signUrl,headers=hearder).text
     signtime=getmidstring(res,'<p>上次签到时间：<code>','</code></p>')
+    print(signtime)
     timeArray = time.strptime(signtime, "%Y-%m-%d %H:%M:%S")
     timeStamp = int(time.mktime(timeArray))
+    print(timeStamp)
     t = int(time.time())
+    print(t)
     #86400是一天
     if t-timeStamp>86400:
         print("距上次签到时间大于24小时啦,可签到")
