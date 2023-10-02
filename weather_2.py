@@ -79,14 +79,46 @@ if __name__ == '__main__':
     sendHtml_email('''
 <style type="text/css">
 
-
+.label{
+display: inline-block;
+padding: 2px 4px;
+font-size: 11.844px;
+font-weight: bold;
+line-height: 14px;
+color: #ffffff;
+vertical-align: baseline;
+white-space: nowrap;
+text-shadow: 0 -1px 0 rgba(0,  0,  0,  0.25);
+background-color: #5cb85c;
+}
+.label {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+h4 small {
+font-size: 13px;
+}
+h2 {
+    font-size: 31.5px;
+}
+h1, h2, h3 {
+    line-height: 40px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+}
 </style>
 <div class="container-fluid">
-	<div class="row clearfix">
+<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3 class="text-info">
-				今天也是美好的一天
-            </h3> <span class="label label-primary">更新时间'''+timeupdate+'''</span><br><br>
+			<h3 class="text-info">	今天也是美好的一天 </h3>
+                <span class="label label-primary">更新时间'''+timeupdate+'''</span><br><br>
+
+	    <center><h4>上海天气</h4></center>
 			
 			<table class="table table-striped">
 				<thead>
@@ -193,12 +225,9 @@ if __name__ == '__main__':
 <hr class="hr0" />
 <div class="page-header">
 <center>
-				<h3>
-					《'''+tishi+''' 》<small>'''+dynasty+' '+author+'''</small>
-				</h3>
-				<h4>
-				'''+reshi+''' 
-				</h4>
+				<h3>《'''+tishi+''' 》</h3>
+    <h4>                     <small>'''+dynasty+' '+author+'''</small></h4>
+				<h5>'''+reshi+'''</h5>
 </center>
 <br>
 
