@@ -20,3 +20,8 @@
 <br>
 <br>
 j 验证码的接口不开放了，签到失败验证码错误。。。
+<br>
+<br>
+遇到问题：mktime的结果和timt.time()的结果总是有一个奇怪的差值，用当前时间减去过去的时间得到的却是负值。下面帖子的问题提出时间差为28800s刚好8个小时，如果按照北京时间和UTC的区别来看刚刚好。。。难道是时区问题？
+![image](https://github.com/the-wackness/tly-auto/assets/65586236/f4ce62b4-a857-400d-bddb-4e75965a22e8)<br>
+[相同问题](https://bbs.csdn.net/topics/90093650)
