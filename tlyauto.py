@@ -67,6 +67,7 @@ def tly():
     signtime=getmidstring(res,'<p>上次签到时间：<code>','</code></p>')
     print(signtime)
     timeArray = time.strptime(signtime, "%Y-%m-%d %H:%M:%S")
+    print(timeArray)
     timeStamp = int(time.mktime(timeArray))
     print(timeStamp)
     t = int(time.time())
