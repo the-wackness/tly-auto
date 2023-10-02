@@ -115,9 +115,9 @@ def sendHtml_email(msg):
     '''
     # 三个参数：第一个为文本内容，第二个 plain 设置文本格式，第三个 utf-8 设置编码
     message = MIMEText(msg, 'html', 'utf-8')
-    message['from'] = "mail"
-    message['to'] = 'mail'
-    password = "token"
+    message['from'] = mail
+    message['to'] = mail
+    password = token
     message['subject'] = Header(u'Today', 'utf-8').encode()
     smtp_server = "smtp.qq.com"
     server = smtplib.SMTP(smtp_server, 25)  # SMTP协议默认端口是25
