@@ -1,0 +1,31 @@
+name: weather bot
+on:
+  workflow_dispatch:
+  schedule:        # 定时任务 想要运行的时间-8即为填入值例如：bj11点运行 填11-8=3
+    - cron:  15 23 * * * 
+
+jobs:
+  checkin:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python version
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9.18
+    - name: requirements
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        pip install beautifulsoup4
+        pip install html5lib
+        pip install lxml
+    - name: Checkin
+      run: |
+        python3 ./weather_2.py 
+      env:
+        MAIL: ${{ secrets.MAIL_ACCOUNT_8 }}
+        PWD: ${{ secrets.TLY_SECRET_8 }}
+        TOKEN: ${{ secrets.MAIL_LICENSE_8 }}
