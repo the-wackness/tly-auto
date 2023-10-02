@@ -47,32 +47,6 @@ reshi = shi['data']['content']
 dynasty = shi['data']['origin']['dynasty']
 author = shi['data']['origin']['author']
 
-#百度热搜
-head = {}
-duurl = "http://top.baidu.com/buzz?b=1"
-head["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0"
-head["Accept"]= "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-head["Accept-Language"]= "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2"
-head["Connection"] = "keep-alive"
-dures = requests.get(duurl , headers = head)
-with open("html.txt", "wb") as f:
-    f.write(dures.content)
-html = etree.parse('html.txt' , etree.HTMLParser(encoding='gbk'))
-top_list = html.xpath('//a[@class="list-title"]/text()')
-num_search = html.xpath('//span[@class="icon-rise"]/text()')
-urlinfo = html.xpath('//a[@class="list-title"]/@href')
-i1 = '<a href='+urlinfo[0]+">"+top_list[0]+"</a>   搜索指数为："+num_search[0]
-i2 = '<a href='+urlinfo[1]+">"+top_list[1]+"</a>   搜索指数为："+num_search[1]
-i3 = '<a href='+urlinfo[2]+">"+top_list[2]+"</a>   搜索指数为："+num_search[2]
-i4 = '<a href='+urlinfo[3]+">"+top_list[3]+"</a>   搜索指数为："+num_search[3]
-i5 = '<a href='+urlinfo[4]+">"+top_list[4]+"</a>   搜索指数为："+num_search[4]
-i6 = '<a href='+urlinfo[5]+">"+top_list[5]+"</a>   搜索指数为："+num_search[5]
-i7 = '<a href='+urlinfo[6]+">"+top_list[6]+"</a>   搜索指数为："+num_search[6]
-i8 = '<a href='+urlinfo[7]+">"+top_list[7]+"</a>   搜索指数为："+num_search[7]
-i9 = '<a href='+urlinfo[8]+">"+top_list[8]+"</a>   搜索指数为："+num_search[8]
-i10 = '<a href='+urlinfo[9]+">"+top_list[9]+"</a>   搜索指数为："+num_search[9]
-i = i1+'<br>'+i2+'<br>'+i3+'<br>'+i4+'<br>'+i5+'<br>'+i6+'<br>'+i7+'<br>'+i8+'<br>'+i9+'<br>'+i10
-
 #发送邮件
 def sendHtml_email(msg):
     '''
@@ -1207,20 +1181,6 @@ background-color: #c4e3f3;
 	</div>
 </div>
 
-
-
-
-
-<div class="col-md-12 columnr-fluid">
-			<h2>
-              百度热搜榜TOP10
-			</h2>
-			<p>
-			点击链接查看详情<br>
-			'''+i+''' 
-			</p>
-		</div>
-			</div>
 
 
 
