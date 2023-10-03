@@ -2,7 +2,7 @@ name: w-tly-checkin            #工作名字
 on:
   workflow_dispatch:
   schedule:       # 定时任务 想要运行的时间-8即为填入值例如：bj8点运行 填8-8=0
-    - cron:  15,45 8,9 * * * 
+    - cron:  15,45 0,1 * * * 
 
 jobs:             
   checkin:
