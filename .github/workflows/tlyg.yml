@@ -2,7 +2,7 @@ name: g-tly-checkin
 on:
   workflow_dispatch:
   schedule:           # 定时任务 UTC比BJ快8h
-    - cron:  15,45 8,9 * * * 
+    - cron:  15,45 0,1 * * * 
 
 jobs:
   checkin:
