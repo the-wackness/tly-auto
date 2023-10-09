@@ -1,8 +1,8 @@
 name: 2-tly-checkin
 on:
   workflow_dispatch:
-  schedule:        # 定时任务
-    - cron: 15,45 0,1 * * * 
+  # schedule:        # 定时任务
+  #   - cron: 15,45 0,1 * * * 
 
 jobs: 
   checkin: 
